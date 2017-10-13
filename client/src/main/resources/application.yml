@@ -1,0 +1,22 @@
+server:
+    port: 8080
+    contextPath: /client
+    tomcat:
+       uri-encoding: utf-8
+security:
+    basic:
+        enabled: false
+
+spring:
+   thymeleaf:
+     cache: false
+   resources:
+      cache-period: 0
+
+config:
+    oauth2:
+        clientID: 0cdd8 
+        clientSecret: 595de3a5-f852-465d-873b-ba1bcf6bacfb 
+        accessTokenUri: http://bank.local:8111/storefront/oauth/token
+        userAuthorizationUri: http://bank.local:8111/storefront/oauth/authorize
+        resourceURI: http://bank.local:8111/storefront/facade/banks/dskbank/accounts/private

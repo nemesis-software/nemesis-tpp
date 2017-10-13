@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div style="height:100%;overflow:hidden">
+    <table style="width:100%;height:100%;border:1px solid #e0dddd">
+        <thead>
+        <tr>
+            <th colspan="4" height="100" style="border-bottom:1px solid #e0dddd"><h1>My Bank Accounts</h1></th>
+        </tr>
+        <TR>
+            <TH style="border-bottom:1px solid #e0dddd">Label</TH>
+            <TH style="border-bottom:1px solid #e0dddd">IBAN</TH>
+            <th style="border-bottom:1px solid #e0dddd">Balance</th>
+            <TH style="border-bottom:1px solid #e0dddd">Bank</TH>
+        </TR>
+        </thead>
+        <tbody>
+        <th:block th:if="${#lists.isEmpty(bankAccounts)}">
+            <tr>
+                <td colspan="4" style="text-align:center;" height="100">You have no bank accounts imported.</td>
+            </tr>
+        </th:block>
+        <th:block th:unless="${#lists.isEmpty(bankAccounts)}" th:each="bankAccount : ${bankAccounts}">
+            <tr>
+                <td style="text-align:center" th:text="${bankAccount.label}">...</td>
+                <td style="text-align:center" th:text="${bankAccount.code}">...</td>
+                <td style="text-align:center" th:text="${bankAccount.balance.formatted}">...</td>
+                <td style="text-align:center"><img src="https://dk4bbvhtxx00t.cloudfront.net/samplestore-bank/content/banner/bank-logo.svg"/></td>
+            </tr>
+        </th:block>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4" style="text-align:center;border-top:1px solid #e0dddd" height="100">
+                <form action="/client/add" method="GET">
+                    Add a new account.
+                    <select id="bank" onchange="this.form.submit()">
+                        <option>--Please select a bank--</option>
+                        <option value="dskbank">DSK</option>
+                        <option value="unicredit">Unicredit</option>
+                        <option value="postbank">Postbank</option>
+                    </select>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:center;border-top:1px solid #e0dddd">
+                <form action="/client/add" method="GET">
+                    Transfer <input type="text" placeholder="Amount"/>
+                    <select>
+                        <option value="BGN">BGN</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                    from
+                    <select>
+                        <option>--Please select an account--</option>
+                        <option th:each="choice : ${bankAccounts}" th:value="${choice.code}" th:text="${choice.label}"></option>
+                    </select>
+                    into
+                    <select>
+                        <option>--Please select an account--</option>
+                        <option th:each="choice : ${bankAccounts}" th:value="${choice.code}" th:text="${choice.label}"></option>
+                    </select>
+                    <input type="submit" value="Now"/>
+                </form>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>
