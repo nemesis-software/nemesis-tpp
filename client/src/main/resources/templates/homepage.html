@@ -69,96 +69,89 @@
                 <ul class="nav nav-tabs" role="tablist" id="contractFormInitTabs">
                     <li role="presentation " onclick="return activeTab = 'plus';" class="plus active">
                         <a id="_url4" href="#plus" aria-controls="plus" role="tab" data-toggle="tab">
-                            <i class="fa fa fa-plus" style="line-height: 20px;"> NemesisTPP Pro<br/><br/>Check out our new<br/>Pro Credit Options!</i>
-                            <div class="col-md-8 hidden-sm hidden-xs pull-right">
-                                <div class="row">
-                                    <div class="col-sm-6 credit-sum"><sup>up to</sup> EUR 9999
-                                    </div>
-                                    <div class="col-sm-6 credit-period">5-15 <span>months</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            <i class="fa fa fa-plus" style="line-height: 20px;"> <strong>My Bank accounts</strong><br/>Check your balance and transfer money with NemesisTpp</i>
+                          </a>
                     </li>
                     <li role="presentation" class="kdz" onclick="return activeTab = 'salary';">
                         <a id="_url4" href="#salary" aria-controls="salary" role="tab" data-toggle="tab">
-                            <i class="fa fa fa-heart" style="line-height: 20px;"> NemesisTPP Max<br/><br/>Check out our new<br/>Max Credit Options!</i>
-                            <div class="col-md-8 hidden-sm hidden-xs pull-right tooltip-wide">
+
+
                                 <div class="row">
-                                    <div class="col-sm-6 credit-sum"><sup>up to</sup> EUR 1000
-                                    </div>
-                                    <div class="col-sm-6 credit-period">15-30 <span>days</span>
-                                    </div>
+                                    <i class="fa fa fa-heart" style="line-height: 20px; padding-left:10px"> <strong>NemesisTPP Credit</strong><br/>Check our new credit options!</i>
+                                    <div class="col-sm-6 credit-period" style="float:right"><sup>up to</sup> EUR 9999 / months</div>
                                 </div>
-                            </div>
+
                         </a>
                     </li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="plus">
-                        <form method="post" action=" " enctype="multipart/form-data" id="creditForm1" novalidate="novalidate"
-                              inspfaactive="true">
-                            <div class="clearfix">
-                                <!--Contract amount-->
-                                <div class="col-md-6">
-                                    <div class="text-center credit-tabs">
-                                        <label for="amount">Amount</label>
-                                        <input id="plusAmount" name="amount_plus" value="EUR 1000" class="ContractAmount no-skin text-center valid"
-                                               aria-invalid="false" type="number"/>
-                                    </div>
-                                    <div id="plusAmountSlider" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                                        <div class="noUi-base">
-                                            <div class="noUi-origin" style="left: 19.5652%;">
-                                                <div class="noUi-handle noUi-handle-lower"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="slider-helpers">
-                                        <span class="pull-left">EUR 100</span>
-                                        <span class="pull-right">EUR 10000</span>
-                                    </div>
-                                </div>
-                                <!--Contract period-->
-                                <div class="col-md-6">
-                                    <div class="text-center credit-tabs">
-                                        <label for="period">Time Period</label>
-                                        <input id="plusPeriod" name="period_plus" value="5 months" class="ContractPeriod no-skin two-digit text-center"
-                                               type="number"/>
-                                    </div>
-                                    <div id="plusPeriodSlider" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                                        <div class="noUi-base">
-                                            <div class="noUi-origin" style="left: 9.52381%;">
-                                                <div class="noUi-handle noUi-handle-lower"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span id="msc"></span>
-                                    <div class="slider-helpers">
-                                        <span class="pull-left">1 month</span>
-                                        <span class="pull-right">25 months</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <label class="col-md-12" id="inviteMsg"></label>
-                            <div class="bottom background-light">
-                                <div class="clearfix">
-                                    <div class="col-md-9">
-                                        <div class="col-md-6">
-                                            E-mail: <input id="email_plus" name="email_plus" class="form-control prevalid" placeholder="E-mail"
-                                                           data-toggle="tooltip" data-placement="bottom" data-html="true" type="email"/></div>
-                                        <div class="col-md-6">
-                                            Phone: <input id="phone_plus" name="phone_plus" class="form-control number prevalid filter-only-numeric"
-                                                          placeholder="Phone" maxlength="10" pattern="[0-9]*" data-toggle="tooltip" data-placement="bottom"
-                                                          data-html="true" type="text"/></div>
-                                    </div>
-                                    <div class="col-md-3 col-xs-6 btn-small-form-plus">
-                                        <button type="submit" onclick="" class="btn btn-primary btn-lg first-step">Continue</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        <table style="width:100%;height:100%;border:1px solid #e0dddd">
+                            <thead>
+                            <tr>
+                                <th colspan="4" height="100" style="text-align:center;border-bottom:1px solid #e0dddd"><h1>My Bank Accounts</h1></th>
+                            </tr>
+                            <tr>
+                                <th colspan="4" height="20" style="color:red;text-align:center;"><h5 th:if="${param.msg != null}" th:text="${param.msg[0]}">
+                                    Insufficient balance</h5></th>
+                            </tr>
+                            <TR>
+                                <TH style="border-bottom:1px solid #e0dddd;text-align:center">Label</TH>
+                                <TH style="border-bottom:1px solid #e0dddd;text-align:center">IBAN</TH>
+                                <th style="border-bottom:1px solid #e0dddd;text-align:center">Balance</th>
+                                <TH style="border-bottom:1px solid #e0dddd;text-align:center">Bank</TH>
+                            </TR>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="bankAccount : ${bankAccounts}">
+                                <tr>
+                                    <td style="text-align:center" th:text="${bankAccount.value.label}">...</td>
+                                    <td style="text-align:center" th:text="${bankAccount.value.code}">...</td>
+                                    <td style="text-align:center" th:text="${bankAccount.value.balance}">...</td>
+                                    <td style="text-align:center"><img src="https://dk4bbvhtxx00t.cloudfront.net/samplestore-bank/content/banner/bank-logo.svg"/>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="4" style="text-align:center;border-top:1px solid #e0dddd" height="100">
+                                    <form action="/client/add" method="GET">
+                                        Add a new account.
+                                        <select id="bank" onchange="this.form.submit()" class="form-control">
+                                            <option>--Please select a bank--</option>
+                                            <option value="dskbank">DSK</option>check
+                                            <option value="unicredit">Unicredit</option>
+                                            <option value="postbank">Postbank</option>
+                                        </select>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="bottom background-light">
+                                <td colspan="4" style="text-align:center;border-top:1px solid #e0dddd">
+                                    <form action="/client/transfer" method="GET">
+                                        Transfer <input type="text" placeholder="Amount" class="form-control prevalid" name="amount"/>
+                                        <select class="form-control" name="currency">
+                                            <option value="BGN">BGN</option>
+                                            <option value="EUR">EUR</option>
+                                        </select>
+                                        from
+                                        <select class="form-control" name="from">
+                                            <option>--Please select an account--</option>
+                                            <option th:each="choice : ${bankAccounts}" th:value="${choice.value.code}" th:text="${choice.value.label}"></option>
+                                        </select>
+                                        into
+                                        <select class="form-control" name="to">
+                                            <option>--Please select an account--</option>
+                                            <option th:each="choice : ${bankAccounts}" th:value="${choice.value.code}" th:text="${choice.value.label}"></option>
+                                        </select>
+                                        <input type="submit" value="Now" class="btn btn-primary first-step" style="width:100px"/>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="salary">
                         <form method="post" action=" " enctype="multipart/form-data" id="creditForm2" novalidate="novalidate"
