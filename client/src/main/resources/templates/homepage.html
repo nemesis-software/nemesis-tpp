@@ -69,25 +69,24 @@
                 <ul class="nav nav-tabs" role="tablist" id="contractFormInitTabs">
                     <li role="presentation " onclick="return activeTab = 'plus';" class="plus active">
                         <a id="_url4" href="#plus" aria-controls="plus" role="tab" data-toggle="tab">
-                            <i class="fa fa fa-plus" style="line-height: 20px;"> <strong>My Bank accounts</strong><br/>Check your balance and transfer money with NemesisTpp</i>
-                          </a>
+                            <i class="fa fa fa-plus" style="line-height: 20px;"> <strong>My Bank Accounts</strong><br/>Check your balance and transfer money
+                                with NemesisTpp</i>
+                        </a>
                     </li>
                     <li role="presentation" class="kdz" onclick="return activeTab = 'salary';">
                         <a id="_url4" href="#salary" aria-controls="salary" role="tab" data-toggle="tab">
-
-
-                                <div class="row">
-                                    <i class="fa fa fa-heart" style="line-height: 20px; padding-left:10px"> <strong>NemesisTPP Credit</strong><br/>Check our new credit options!</i>
-                                    <div class="col-sm-6 credit-period" style="float:right"><sup>up to</sup> EUR 9999 / months</div>
-                                </div>
-
+                            <div class="row">
+                                <i class="fa fa fa-heart" style="line-height: 20px; padding-left:10px"> <strong>NemesisTPP Loans</strong><br/>Check our new
+                                    credit options!</i>
+                                <div class="col-sm-6 credit-period" style="float:right"><sup>up to</sup> EUR 9999.99</div>
+                            </div>
                         </a>
                     </li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="plus">
-                        <table style="width:100%;height:100%;border:1px solid #e0dddd">
+                        <table style="width:100%;height:100%;">
                             <thead>
                             <tr>
                                 <th colspan="4" height="100" style="text-align:center;border-bottom:1px solid #e0dddd"><h1>My Bank Accounts</h1></th>
@@ -118,7 +117,7 @@
                             <tr>
                                 <td colspan="4" style="text-align:center;border-top:1px solid #e0dddd" height="100">
                                     <form action="/client/add" method="GET">
-                                        Add a new account.
+                                        Add a new account:
                                         <select id="bank" onchange="this.form.submit()" class="form-control">
                                             <option>--Please select a bank--</option>
                                             <option value="dskbank">DSK</option>check
@@ -146,7 +145,7 @@
                                             <option>--Please select an account--</option>
                                             <option th:each="choice : ${bankAccounts}" th:value="${choice.value.code}" th:text="${choice.value.label}"></option>
                                         </select>
-                                        <input type="submit" value="Now" class="btn btn-primary first-step" style="width:100px"/>
+                                        <input type="submit" value="Now" class="btn btn-primary btn-lg" style="width:100px"/>
                                     </form>
                                 </td>
                             </tr>
